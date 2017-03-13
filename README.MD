@@ -141,7 +141,7 @@ function downloadImg(albumList) {
 ```
 
 ### 代码运行
-由于使用了Async Await,需要Node.js 7.5及以上版本
+由于使用了Async Await,需要Node.js 7.6及以上版本
 ```
 $ git clone https://github.com/nieheyong/hanhandeSpider.git
 $ cd hanhandeSpider
