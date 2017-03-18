@@ -1,3 +1,5 @@
 node_modules
 Data
 .vscode
+img-*
+json-*
