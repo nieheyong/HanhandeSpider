@@ -1,7 +1,7 @@
 'use strict'
 let fs = require("fs");
 let cheerio = require('cheerio');
-let async = require("async");
+let asyncQuene = require("async").queue;
 let request = require('superagent');
 require('superagent-charset')(request);
 
@@ -31,7 +31,7 @@ let getAlbumsAsync = function () {
     return new Promise(function (resolve, reject) {
         console.log('Start get albums .....');
         let albums = [];
-        let q = async.queue(async function (url, taskDone) {
+        let q = asyncQuene(async function (url, taskDone) {
             try {
                 let $ = await getHtmlAsync(url);
                 console.log(`download ${url} success`);
@@ -70,7 +70,7 @@ let getAlbumsAsync = function () {
 let getImageListAsync = function (albumsList) {
     return new Promise(function (resolve, reject) {
         console.log('Start get album`s imgList ....');
-        let q = async.queue(async function ({ url: albumUrl, title: albumTitle, imgList }, taskDone) {
+        let q = asyncQuene(async function ({ url: albumUrl, title: albumTitle, imgList }, taskDone) {
             try {
                 let $ = await getHtmlAsync(albumUrl);
                 console.log(`get album ${albumTitle} image list done`);
@@ -122,7 +122,7 @@ function downloadImg(albumList) {
     const folder = `img-${Config.currentImgType}-${Config.startPage}-${Config.endPage}`;
     fs.mkdirSync(folder);
     let downloadCount = 0;
-    let q = async.queue(async function ({ title: albumTile, url: imageUrl }, taskDone) {
+    let q = asyncQuene(async function ({ title: albumTile, url: imageUrl }, taskDone) {
         request.get(imageUrl).end(function (err, res) {
             if (err) {
                 console.log(err);
