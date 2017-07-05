@@ -102,19 +102,6 @@ function writeJsonToFile(albumList) {
     fs.mkdirSync(folder);
     let filePath = `./${folder}/${Config.currentImgType}-${Config.startPage}-${Config.endPage}.json`;
     fs.writeFileSync(filePath, JSON.stringify(albumList));
-
-    let simpleAlbums = [];
-    // "http://www.hanhande.com/upload/170103/4182591_102225_1063.jpg"
-    const slice = "http://www.hanhande.com/upload/".length;//所有图片URL的公共部分
-    albumList.forEach(function ({ title: albumTitle, url: albumUrl, imgList }) {
-        let imgListTemp = [];
-        imgList.forEach(function (url) {
-            imgListTemp.push(url.slice(slice));//去掉所有图片URL的公共部分
-        })
-        simpleAlbums.push({ title: albumTitle, url: albumUrl, imgList: imgListTemp })
-    });
-    filePath = `./${folder}/${Config.currentImgType}-${Config.startPage}-${Config.endPage}.min.json`;
-    fs.writeFileSync(filePath, JSON.stringify(simpleAlbums));
 }
 
 function downloadImg(albumList) {
