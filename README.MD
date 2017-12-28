@@ -1,4 +1,4 @@
-####  注意! 取目标网站 [http://tu.hanhande.com](http://tu.hanhande.com) 已经失效，打开提示"因版权问题我们已删除内容,感谢大家一直以来对我们的支持" 。
+####  注意! 爬取目标网站 [http://tu.hanhande.com](http://tu.hanhande.com) 已经失效，打开提示"因版权问题我们已删除内容,感谢大家一直以来对我们的支持" 。
 ---
 
 # 运行
