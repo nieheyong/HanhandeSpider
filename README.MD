@@ -1,3 +1,6 @@
+####  注意! 取目标网站 [http://tu.hanhande.com](http://tu.hanhande.com) 已经失效，打开提示"因版权问题我们已删除内容,感谢大家一直以来对我们的支持" 。
+---
+
 # 运行
 #### 由于使用了Async Await,需要Node.js 7.6及以上版本!
 #### 需要Node.js 7.6及以上版本!
